@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+	<meta name="viewport" content="width=device-width, initial scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'guru/css/styles.css' %}">
+</head>
+<body>
+	{% block body %}
+	<h1>LOGIN</h1>
+	<hr>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4" >
+				<form name="loginForm" action="./dashboard" method="POST">
+					{% csrf_token %}
+					<label for="phno">Phone number:</label><br>
+					<input type="text" name="phno"><br>
+					
+					<label for="pswd">PASSWORD:</label><br>
+					<input type="text" name="pswd"><br>
+					
+					<input type="submit" name="sub">
+					<a href="./signup">SignUp</a>
+				</form>
+			</div>	
+		</div>
+	</div>
+
+	
+	
+
+
+	<script type="text/javascript" src="{% static 'guru/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/script.js' %}"></script>
+
+	{% endblock %}
+</body>
+</html>

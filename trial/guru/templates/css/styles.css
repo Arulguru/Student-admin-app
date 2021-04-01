@@ -1,0 +1,17 @@
+#loginBox{
+	border: 2px solid black;
+}
+
+input{
+	margin: 5px;
+}
+
+.btn{
+	font-weight: bold;
+	color: black;
+	margin: 2px 
+}
+
+body{
+	background-color:blue;
+}

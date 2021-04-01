@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+	<meta name="viewport" content="width=device-width, initial scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'guru/css/styles.css' %}">
+</head>
+<body>
+	<h1>Student Management Application</h1>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container-fluid">
+			<div class="row content">
+				<div class="col-md-6">
+					<img src="{% static 'guru/time-to-study.jpg' %}" >
+				</div>
+			
+				<div class="col-md-3">
+				{% if session %}
+				
+					<div class="row content">
+						<button type="button" class="btn btn-secondary"><a href="./login">Open account</a></button>
+					</div>
+					
+						{% else %}
+					<div class="row content">
+						<button type="button" class="btn btn-secondary"><a href="./login">Login</a></button>
+					</div>
+				
+				{% endif %}
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container-fluid">
+			<div class="row content">
+				<div class="col-xs-12 col-sm-12 col-md-6">
+					<h6>CONTACTS</h6>
+					MAIL:<a href="mailto:arulguru1312@gamil.com">arulguru1312@gmail.com</a><br>
+					PhNo:<a href="tel:6382718138">6382718138</a>
+				</div>
+			</div>
+			
+		</div>
+		<p><i>THANK YOU FOR VISITING!</i></p>
+	</footer>
+	
+	
+	<script type="text/javascript" src="{% static 'guru/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/script.js' %}"></script>
+</body>
+</html>

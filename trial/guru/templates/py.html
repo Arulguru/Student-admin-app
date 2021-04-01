@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function validate(){
+		var x=document.forms["django"]["name"].value;
+		var y=document.forms["django"]["pswd"].value;
+		var z=document.forms["django"]["check"].value;
+		var d=document.forms["django"]["desig"].value
+		if(x==""){
+			alert("enter name");
+			return false;
+			}
+		if(y!=z){
+			alert("incorrect password");
+			return false;
+		}
+		if(d!="student" && d!="Student" && d!="STUDENT" && d!="teacher" && d!="TEACHER" && d!="Teacher"){
+			alert("Enter valid designation")
+			return false;
+		}
+		}
+	</script>
+	{% load static %}
+	<meta name="viewport" content="width=device-width, initial scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'guru/css/styles.css' %}">
+</head>
+<body>
+	<h1 style="text-align: center;">Welcome New User</h1>
+
+	<hr>
+	<div class="container-fluid"> 
+		<div class="row col-md-4">
+			<form name="django" onsubmit="return validate()" method="POST" >
+				{% csrf_token %}
+				<label for="name">NAME:</label><br>
+				<input type="text" id="name" name="name"><br>
+				<label for="emailid">MAIL ID:</label><br>
+				<input type="text" id="emailid "name="emailid"><br>
+				<label for="phno">Phone No:</label><br>
+				<input type="text" id="ph" name="phno"><br>
+				
+				<label for="desig">DESIGNATION:</label><br>
+				<input type="text" id="desig" name="desig"><br>
+				
+
+				<label for="pswd">Password:</label><br>
+				<input type="password" id="pswd" name="pswd"><br>
+				<label for="check">ReEnter Password:</label><br>
+				<input type="password" name="check"><br>
+				<input type="submit" >
+			</form>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="{% static 'guru/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/script.js' %}"></script>
+	
+
+</body>
+</html>

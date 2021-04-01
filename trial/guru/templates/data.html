@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load static %}
+	<meta name="viewport" content="width=device-width, initial scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'guru/css/styles.css' %}">
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-dark">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="./dashboard"><h4>DASHBOARD</h4></a>
+			</li>
+			<li class="nav-item ">
+			<a class="nav-link" href="./data">Profile</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" href="./logout">Logout</a>
+			</li>
+		</ul>		
+	</nav>
+	<div id="userInfo">
+		{% for i in user %}
+		<ul>
+			<li>id={{i.id}}</li><br>
+			<li>name={{i.Mname}}</li><br>
+			<li>email={{i.Memail}}</li><br>
+			<li>phno={{i.Mphno}}</li>
+		</ul>
+
+	</div>
+
+	<button type="button" class="btn-primary" data-toggle="modal" data-target="#model1" data-Name="{{i.Mname}}" data-Email="{{i.Memail}}" data-PhNo="{{i.Mphno}}">update</button>
+	
+	<div class="container-fluid">
+		<div class="row content">
+			<div class="col-sm-4" id="model1">
+				
+				<form action="./update" method="POST">
+					{% csrf_token %}
+					<label for="name">NAME:	</label><br>
+					<input type="text" id="name" name="name"><br>
+					<label for="email">EMAIL:</label><br>
+					<input type="text" id="email" name="email"><br>
+					<label for="phno">PhNo:</label><br>
+					<input type="text" id="PhNo" name="PhNo"><br>
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+	<button type="button" class="btn-secondary"><a href="./dashboard">close</a></button>
+
+
+	
+	
+
+	<script type="text/javascript">
+		$('#model1').on('show.bs.modal',function (event){
+			var bt=$(event.relatedTarget);
+			var name=bt.data(Name);
+			var email=bt.data(Email);
+			var phno=bt.data(PhNo);
+			var modal=$(this )
+			modal.find('.modal_container #name').val(name)
+			modal.find('.modal_container #email').val(email)
+			modal.find('.modal_container #PhNo').val(phno)
+		})
+	</script>
+
+	<script type="text/javascript" src="{% static 'guru/js/jquery.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'guru/js/script.js' %}"></script>
+</body>
+</html>
